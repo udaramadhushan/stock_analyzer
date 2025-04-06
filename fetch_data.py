@@ -12,9 +12,14 @@ def fetch_daily_stock(symbol):
     return data
 
 
-def save_data_to_csv(symbol, df):
+def save_data_to_csv(symbol, df,  frquency = 'daily'):
     os.makedirs(RAW_DATA_PATH, exist_ok=True)
-    file_path = os.path.join(RAW_DATA_PATH, f"{symbol}_daily.csv")
+    file_path = os.path.join(RAW_DATA_PATH, f"{symbol}_{frquency}.csv")
     df.to_csv(file_path)
 
     print(f"[+] Data saved to {file_path}")
+
+def fetch_weekly_stock(symbol):
+    ts = TimeSeries(key=API_KEY,output_format='pandas' )
+    data , _ = ts.get_weekly(symbol=symbol)
+    return data

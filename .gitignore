@@ -1,0 +1,19 @@
+# Ignore raw and processed stock data
+data/raw/
+data/processed/
+
+# Ignore logs
+logs/
+
+# Ignore any CSV or JSON report files
+*.csv
+*.json
+
+# Ignore system/editor files
+__pycache__/
+*.pyc
+.vscode/
+
+# Just in case: ignore your config if you store keys there (optional)
+config.py
+test.py
